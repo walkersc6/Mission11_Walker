@@ -1,28 +1,40 @@
 import { useEffect, useState } from "react";
-import { Book } from "./types/Book";
+import { Book } from "../types/Book";
+import { useNavigate } from "react-router-dom";
 
-function BookList() {
+function BookList({ selectedCategories }: { selectedCategories: string[] }) {
     const [books, setBooks] = useState<Book[]>([]);
     const [pageSize, setPageSize] = useState<number>(5);
     const [pageNum, setPageNum] = useState<number>(1);
     const [totalItems, setTotalItems] = useState<number>(0);
     const [totalPages, setTotalPages] = useState<number>(0);
     const [sortedAsc, setSortedAsc] = useState(true); //for sorting the book names
+    const navigate = useNavigate(); //enable navigation
+
+    // Reset page number to 1 whenever selectedCategories change
+    useEffect(() => {
+        setPageNum(1);
+    }, [selectedCategories]);
 
     useEffect(() => {
         const fetchBooks = async() => {
-            const response = await fetch(`https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}`);
+            //figure out path for the selected categories
+            const categoryParams = selectedCategories.map((cat) => `bookTypes=${encodeURIComponent(cat)}`).join('&');
+            
+            //if there are categories selected, add that to the path
+            const response = await fetch(`https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ''}`);
             const data = await response.json();
+            // set variables based on the filtered data
             setBooks(data.books);
             setTotalItems(data.totalBooks)
             setTotalPages(Math.ceil(totalItems / pageSize));
 
         };
         fetchBooks();
-    }, [pageSize, pageNum, totalItems]);
+    }, [pageSize, pageNum, totalItems, selectedCategories]);
 
 
-    //let the user sort books 
+    //let the user sort books alphabetically
     const handleSort = () => {
         const sortedBooks = [...books].sort((a, b) => {
         if (a.title < b.title) {
@@ -40,7 +52,6 @@ function BookList() {
 
     return(
         <>
-            <h2>Hilton's Books</h2>
             <table className="table table-striped table-hover">
                 <thead className="thead-dark">
                     <tr>
@@ -64,6 +75,12 @@ function BookList() {
                             <td>{b.classification}</td>
                             <td>{b.pageCount}</td>
                             <td>${b.price}</td>
+                            {/* add button to add to cart, pass in book title, id, and price for the purchase page */}
+                            <td>
+                                <button className="btn" onClick={() => navigate(`/purchase/${b.title}/${b.bookId}/${b.price}`)}>
+                                    Add to Cart
+                                </button>
+                            </td>
                         </tr>
                     )) 
                     }
