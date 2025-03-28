@@ -49,7 +49,8 @@ function BookList() {
                         <td>Author</td>
                         <td>Publisher</td>
                         <td>ISBN</td>
-                        <td>Classification/Category</td>
+                        <td>Classification</td>
+                        <td>Category</td>
                         <td>Number of Pages</td>
                         <td>Price</td>
                     </tr>
@@ -62,6 +63,7 @@ function BookList() {
                             <td>{b.publisher}</td>
                             <td>{b.isbn}</td>
                             <td>{b.classification}</td>
+                            <td>{b.category}</td>
                             <td>{b.pageCount}</td>
                             <td>${b.price}</td>
                         </tr>
