@@ -13,6 +13,7 @@ function CategoryFilter({selectedCategories, setSelectedCategories}: {selectedCa
                 const data = await response.json();
                 console.log('Fetch categories:', data);
                 setCategories(data);
+                console.log(categories);
             }
             catch (error) {
                 console.error('Error fetching categories:', error);

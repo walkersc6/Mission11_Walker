@@ -24,7 +24,7 @@ namespace Mission11.Controllers
 
             if (bookTypes != null && bookTypes.Any())
             {
-                query = query.Where(p => bookTypes.Contains(p.Classification));
+                query = query.Where(p => bookTypes.Contains(p.Category));
             }
 
             var totalNumBooks = query.Count();
@@ -50,7 +50,7 @@ namespace Mission11.Controllers
         public IActionResult GetBookTypes()
         {
             var bookTypes = _bookContext.Books
-                .Select(p => p.Classification)
+                .Select(p => p.Category)
                 .Distinct()
                 .ToList();
             return Ok(bookTypes);

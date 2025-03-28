@@ -28,6 +28,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
             setBooks(data.books);
             setTotalItems(data.totalBooks)
             setTotalPages(Math.ceil(totalItems / pageSize));
+            console.log(selectedCategories);
 
         };
         fetchBooks();
@@ -60,7 +61,8 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
                         <td>Author</td>
                         <td>Publisher</td>
                         <td>ISBN</td>
-                        <td>Classification/Category</td>
+                        <td>Classification</td>
+                        <td>Category</td>
                         <td>Number of Pages</td>
                         <td>Price</td>
                     </tr>
@@ -73,6 +75,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
                             <td>{b.publisher}</td>
                             <td>{b.isbn}</td>
                             <td>{b.classification}</td>
+                            <td>{b.category}</td>
                             <td>{b.pageCount}</td>
                             <td>${b.price}</td>
                             {/* add button to add to cart, pass in book title, id, and price for the purchase page */}

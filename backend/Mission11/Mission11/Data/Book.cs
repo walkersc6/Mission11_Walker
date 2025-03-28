@@ -19,6 +19,8 @@ namespace Mission11.Data
         [Required]
         public string Classification { get; set; }
         [Required]
+        public string Category { get; set; }
+        [Required]
         public int PageCount { get; set; }
         [Required]
         public double Price { get; set; }
