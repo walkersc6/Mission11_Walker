@@ -99,7 +99,7 @@ const EditBookForm = ({
           <input
             type="number"
             name="price"
-            value={(formData.price).toFixed(2)}
+            value={formData.price}
             onChange={handleChange}
           />
         </label>
