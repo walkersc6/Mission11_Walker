@@ -17,7 +17,7 @@ builder.Services.AddDbContext<BookDbContext>(options => options.UseSqlite(builde
 builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactAppBlah",
     policy => {
-        policy.WithOrigins("http://localhost:3000")
+        policy.WithOrigins("http://localhost:3000", "https://gentle-rock-05f5f901e.6.azurestaticapps.net")
         .AllowAnyMethod()
         .AllowAnyHeader();
     }));
