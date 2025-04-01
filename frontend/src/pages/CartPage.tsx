@@ -28,7 +28,7 @@ function CartPage() {
                                     <td>{item.title}</td>
                                     <td>{item.quantity}</td>
                                     {/* Display the price for the individual book */}
-                                    <td>${item.price}</td>
+                                    <td>${item.price.toFixed(2)}</td>
                                     {/* subtotal */}
                                     <td>${item.subtotalPrice.toFixed(2)}</td>
                                     <td>

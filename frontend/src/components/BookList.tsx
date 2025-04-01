@@ -78,7 +78,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
                             <td>{b.classification}</td>
                             <td>{b.category}</td>
                             <td>{b.pageCount}</td>
-                            <td>${b.price}</td>
+                            <td>${b.price.toFixed(2)}</td>
                             {/* add button to add to cart, pass in book title, id, and price for the purchase page */}
                             <td>
                                 <button className="btn" onClick={() => navigate(`/purchase/${b.title}/${b.bookId}/${b.price}`)}>
