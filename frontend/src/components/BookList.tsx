@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Book } from "../types/Book";
 import { useNavigate } from "react-router-dom";
+import Pagination from "./Pagination";
 
 function BookList({ selectedCategories }: { selectedCategories: string[] }) {
     const [books, setBooks] = useState<Book[]>([]);
     const [pageSize, setPageSize] = useState<number>(5);
     const [pageNum, setPageNum] = useState<number>(1);
-    const [totalItems, setTotalItems] = useState<number>(0);
+    const [totalItems, setTotalItems] = useState<number>(0); // helps with dynamic pagination
     const [totalPages, setTotalPages] = useState<number>(0);
     const [sortedAsc, setSortedAsc] = useState(true); //for sorting the book names
     const navigate = useNavigate(); //enable navigation
@@ -90,42 +91,16 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
                 </tbody>
             </table>
             
-            {/* Buttons to navigate */}
-            {/* Previous Button */}
-            <button disabled={pageNum === 1} onClick={() => setPageNum(pageNum - 1)}>Previous</button>
-            
-            {/* create pagination dynamically based on how many records are shown  */}
-            {
-                [...Array(totalPages)].map((_, index) => (
-                    <button key={index +1 } 
-                    onClick={() => setPageNum(index + 1)} 
-                    disabled = {pageNum === (index+ 1)}
-                    >
-                        {index + 1}
-                    </button>
-                ))         
-            }
-
-            {/* Next Button */}
-            <button disabled={pageNum === totalPages} onClick={() => setPageNum(pageNum + 1)}>Next</button>
-
-            <br />
-            {/* allow user to choose how many records are shown on a page */}
-            <label>Results per page:
-                <select value = {pageSize} 
-                    onChange={
-                        (p) => {
-                            setPageSize(Number(p.target.value));
-                            setPageNum(1);
-                        }
-                    }
-                >
-                    <option value = "5">5</option>
-                    <option value = "10">10</option>
-                    <option value = "15">15</option>
-                </select>
-            </label>
-
+            {/* call the pagination component */}
+            <Pagination 
+                currentPage = {pageNum}
+                totalPages = {totalPages}
+                pageSize = {pageSize}
+                onPageChange = {setPageNum}
+                onPageSizeChange = {(newSize) => {
+                    setPageSize(newSize); 
+                    setPageNum(1)}}
+            />
         </>
     );
     

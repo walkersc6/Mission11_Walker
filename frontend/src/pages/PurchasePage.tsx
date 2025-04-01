@@ -16,7 +16,7 @@ function PurchasePage() {
     const handleAddToCart = () => {
         const newItem: CartItem = {
             bookId: Number(bookId),
-            title: bookTitle || "No Project Found", 
+            title: bookTitle || "No Book Found", 
             quantity,
             price: Number(bookPrice),
             subtotalPrice: parseFloat(subtotal)

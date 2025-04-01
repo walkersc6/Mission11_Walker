@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/26bf173c-1618-4ec7-8507-95c7b7ce1aa6/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/Mission013-Walker",
+  "appService.deploySubpath": "backend\\Mission11\\Mission11\\publish"
+}
