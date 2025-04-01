@@ -23,7 +23,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
             const categoryParams = selectedCategories.map((cat) => `bookTypes=${encodeURIComponent(cat)}`).join('&');
             
             //if there are categories selected, add that to the path
-            const response = await fetch(`https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ''}`);
+            const response = await fetch(`https://mission13-walker-backend.azurewebsites.net/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ''}`);
             const data = await response.json();
             // set variables based on the filtered data
             setBooks(data.books);
