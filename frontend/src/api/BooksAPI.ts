@@ -6,7 +6,8 @@ interface FetchBooksResponse {
 }
 
 // save api route as variable to make it easier to type the route
-const API_URL = "https://mission13-walker-backend.azurewebsites.net/Book";
+// const API_URL = "https://mission13-walker-backend.azurewebsites.net/Book";
+const API_URL = "http://localhost:5000/Book"
 
 // retrieve all book records based on selected categories
 export const fetchBooks = async (
