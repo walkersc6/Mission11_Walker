@@ -1,126 +1,87 @@
 import { useState } from 'react';
 import { Book } from '../types/Book';
 import { addBook } from '../api/BooksAPI';
+import "./Forms.css";
 
-// properties include a function for when the user Cancels and when a user submits Successfully
 interface AddBookFormProps {
-  onSuccess: () => void;
-  onCancel: () => void;
+    onSuccess: () => void;
+    onCancel: () => void;
 }
 
 const AddBookForm = ({ onSuccess, onCancel }: AddBookFormProps) => {
-  // formData will contain all fields necessary to match the database
-  const [formData, setFormData] = useState<Book>({
-    bookId: 0,
-    title: '',
-    author: '',
-    publisher: '',
-    isbn: '',
-    classification: '',
-    category: '',
-    pageCount: 0,
-    price: 0
-  });
-  
-  // handles changes to form inputs
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  
-  // handles submissions to the database
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await addBook(formData);
-    onSuccess();
-  };
-  
-  return (
-    // Add Book Form
-    <form onSubmit={handleSubmit}>
-      <h2>Add New Book</h2>
-      <div className="form-grid">
-        <label>
-          Title:
-          <input
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Author:
-          <input
-            type="text"
-            name="author"
-            value={formData.author}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Publisher:
-          <input
-            type="text"
-            name="publisher"
-            value={formData.publisher}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          ISBN:
-          <input
-            type="text"
-            name="isbn"
-            value={formData.isbn}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Classification:
-          <input
-            type="text"
-            name="classification"
-            value={formData.classification}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Category:
-          <input
-            type="text"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Page Count:
-          <input
-            type="number"
-            name="pageCount"
-            value={formData.pageCount}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Price:
-          <input
-            type="number"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-          />
-        </label>
-        <br/>
-        <button type="submit">
-            Add Book
-        </button>
-        <button type="button" onClick={onCancel}>
-          Cancel
-        </button>
-      </div>
-    </form>
-  );
+    const [formData, setFormData] = useState<Book>({
+        bookId: 0,
+        title: '',
+        author: '',
+        publisher: '',
+        isbn: '',
+        classification: '',
+        category: '',
+        pageCount: 0,
+        price: 0,
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        await addBook(formData);
+        onSuccess();
+    };
+
+    return (
+        <div className="book-form-overlay">
+            <div className="book-form-card">
+                <div className="book-form-header">
+                    <h2>Add New Book</h2>
+                </div>
+                <div className="book-form-body">
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-grid">
+                            <div className="form-field full-width">
+                                <label>Title</label>
+                                <input type="text" name="title" value={formData.title} onChange={handleChange} />
+                            </div>
+                            <div className="form-field">
+                                <label>Author</label>
+                                <input type="text" name="author" value={formData.author} onChange={handleChange} />
+                            </div>
+                            <div className="form-field">
+                                <label>Publisher</label>
+                                <input type="text" name="publisher" value={formData.publisher} onChange={handleChange} />
+                            </div>
+                            <div className="form-field">
+                                <label>ISBN</label>
+                                <input type="text" name="isbn" value={formData.isbn} onChange={handleChange} />
+                            </div>
+                            <div className="form-field">
+                                <label>Classification</label>
+                                <input type="text" name="classification" value={formData.classification} onChange={handleChange} />
+                            </div>
+                            <div className="form-field">
+                                <label>Category</label>
+                                <input type="text" name="category" value={formData.category} onChange={handleChange} />
+                            </div>
+                            <div className="form-field">
+                                <label>Page Count</label>
+                                <input type="number" name="pageCount" value={formData.pageCount} onChange={handleChange} />
+                            </div>
+                            <div className="form-field">
+                                <label>Price ($)</label>
+                                <input type="number" name="price" value={formData.price} onChange={handleChange} />
+                            </div>
+                        </div>
+                        <div className="form-actions">
+                            <button type="button" className="btn-secondary" onClick={onCancel}>Cancel</button>
+                            <button type="submit" className="btn-primary">Add Book</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default AddBookForm;

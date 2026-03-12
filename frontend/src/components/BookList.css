@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --parchment: #F4EFE4;
+  --cream: #FDFAF4;
+  --espresso: #1E0F07;
+  --warm-brown: #6B4226;
+  --amber: #B8732A;
+  --amber-light: #D4944A;
+  --tan: #DDC9A8;
+  --text: #2E1A0E;
+  --subtle: #9B7B5C;
+  --row-hover: #FDF5E8;
+}
+
+/* ── Wrapper ── */
+.booklist-wrapper {
+  background: var(--cream);
+  border: 1px solid var(--tan);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(30, 15, 7, 0.08);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.booklist-table-area {
+  flex: 1;
+  overflow: hidden;
+}
+
+.booklist-pagination {
+  border-top: 1px solid var(--tan);
+  background: var(--parchment);
+}
+
+
+/* ── Header bar ── */
+.booklist-header {
+  background: var(--espresso);
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--amber);
+}
+
+.booklist-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--tan);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.booklist-header span {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  color: var(--subtle);
+  font-style: italic;
+}
+
+/* ── Table ── */
+.book-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: 'Lora', Georgia, serif;
+}
+
+.book-table .col-title     { width: 22%; }
+.book-table .col-author    { width: 18%; }
+.book-table .col-publisher { width: 16%; }
+.book-table .col-category  { width: 13%; }
+.book-table .col-pages     { width: 8%; }
+.book-table .col-price     { width: 8%; }
+.book-table .col-action    { width: 15%; }
+
+.book-table thead tr {
+  background: var(--parchment);
+  border-bottom: 2px solid var(--tan);
+}
+
+.book-table thead td {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--warm-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 0.6rem;
+  white-space: nowrap;
+}
+
+.book-table thead td.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.15s;
+}
+
+.book-table thead td.sortable:hover {
+  color: var(--amber);
+}
+
+.book-table tbody tr {
+  border-bottom: 1px solid #EEE5D3;
+  transition: background 0.15s ease;
+}
+
+.book-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.book-table tbody tr:hover {
+  background: var(--row-hover);
+}
+
+.book-table tbody td {
+  font-size: 0.925rem;
+  color: var(--text);
+  padding: 0.85rem 0.6rem;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  white-space: nowrap;
+}
+
+/* Title gets priority width and can wrap */
+.book-table tbody td.author-cell,
+.book-table tbody td.publisher-cell {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.35;
+}
+
+.book-table tbody td.title-cell {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: var(--espresso);
+  font-size: 1rem;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.35;
+  min-width: 140px;
+}
+
+.book-table tbody td.price-cell {
+  font-weight: 600;
+  color: var(--warm-brown);
+  white-space: nowrap;
+}
+
+.book-table tbody td.action-cell {
+  text-align: right;
+  padding-right: 0.75rem;
+}
+
+/* ── Add to Cart button ── */
+.btn-cart {
+  background: transparent;
+  border: 1.5px solid var(--amber);
+  color: var(--amber);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 5px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.btn-cart:hover {
+  background: var(--amber);
+  color: var(--cream);
+}

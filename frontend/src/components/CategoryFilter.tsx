@@ -1,61 +1,52 @@
 import { useEffect, useState } from "react";
-import './CategoryFilter.css'
+import './CategoryFilter.css';
 
-function CategoryFilter({selectedCategories, setSelectedCategories}: {selectedCategories: string[]; setSelectedCategories: (categories:string[]) => void;})
-{
-    const[categories, setCategories] = useState<string[]>([]);
-    
-    // fetch the different book categories from the database with error catching
+function CategoryFilter({
+    selectedCategories,
+    setSelectedCategories
+}: {
+    selectedCategories: string[];
+    setSelectedCategories: (categories: string[]) => void;
+}) {
+    const [categories, setCategories] = useState<string[]>([]);
+
     useEffect(() => {
         const fetchCategories = async () => {
-            try{
-                const response = await fetch(`http://localhost:5000/Book/GetBookTypes`)
-                //(`https://mission13-walker-backend.azurewebsites.net/Book/GetBookTypes`);
+            try {
+                const response = await fetch(`http://localhost:5000/Book/GetBookTypes`);
                 const data = await response.json();
-                console.log('Fetch categories:', data);
                 setCategories(data);
-                console.log(categories);
-            }
-            catch (error) {
+            } catch (error) {
                 console.error('Error fetching categories:', error);
             }
-        }
+        };
         fetchCategories();
-    }, []); // return an empty array if no data is found
+    }, []);
 
-    // handles what happens when a checkbox is checked/unchecked
-    function handleCheckboxChange({target}: {target: HTMLInputElement})
-    {
-        // checks if the category is already in the selected categories
-        const updatedCategories = selectedCategories.includes(target.value) 
-            // if the category is already selected, remove it from the list
-            ? selectedCategories.filter(x => x !== target.value) 
-            // else if the category is not in the list, add it to the selected categories
+    function handleCheckboxChange({ target }: { target: HTMLInputElement }) {
+        const updatedCategories = selectedCategories.includes(target.value)
+            ? selectedCategories.filter(x => x !== target.value)
             : [...selectedCategories, target.value];
-        
-            // update the categories to filter by
         setSelectedCategories(updatedCategories);
     }
 
     return (
-        <div>
-            <div className = 'category-filter'>
-                <h5>Book Genres</h5>
-                <div className = 'category-list'>
-                    {/* map out all the categories with a checkbox */}
-                    {categories.map((c) => (
-                        <div key = {c} className = 'category-item'>
-                            <input 
-                                type="checkbox" 
-                                id = {c} 
-                                value={c} 
-                                className ='category-checkbox' 
-                                onChange={handleCheckboxChange} 
-                            />
-                            <label htmlFor={c}>{c}</label>
-                        </div>
-                    ))}
-                </div>
+        <div className="category-filter">
+            <p className="category-filter-title">Browse by</p>
+            <h2 className="category-filter-heading">Genre</h2>
+            <div className="category-list">
+                {categories.map((c) => (
+                    <div key={c} className="category-item">
+                        <input
+                            type="checkbox"
+                            id={c}
+                            value={c}
+                            className="category-checkbox"
+                            onChange={handleCheckboxChange}
+                        />
+                        <label htmlFor={c}>{c}</label>
+                    </div>
+                ))}
             </div>
         </div>
     );

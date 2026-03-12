@@ -1,0 +1,405 @@
+/* ── Page shell ── */
+.page-shell {
+  min-height: 100vh;
+  background: #F4EFE4;
+  overflow-x: hidden;
+}
+
+.page-content {
+  max-width: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* ── BookPage layout ── */
+.bookpage-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  width: 100%;
+}
+
+/* ── AdminBooksPage ── */
+.admin-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.admin-toolbar h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1E0F07;
+  margin: 0;
+}
+
+.btn-add {
+  background: #1E0F07;
+  border: 1.5px solid #1E0F07;
+  color: #DDC9A8;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.btn-add:hover {
+  background: #6B4226;
+  border-color: #6B4226;
+}
+
+.admin-table-wrapper {
+  background: #FDFAF4;
+  border: 1px solid #DDC9A8;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(30,15,7,0.08);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Lora', Georgia, serif;
+}
+
+.admin-table thead tr {
+  background: #1E0F07;
+  border-bottom: 3px solid #B8732A;
+}
+
+.admin-table thead th {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #DDC9A8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.85rem 1rem;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid #EEE5D3;
+  transition: background 0.15s;
+}
+
+.admin-table tbody tr:last-child { border-bottom: none; }
+.admin-table tbody tr:hover { background: #FDF5E8; }
+
+.admin-table tbody td {
+  font-size: 0.82rem;
+  color: #2E1A0E;
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+}
+
+.admin-table tbody td.title-cell {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: #1E0F07;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-edit {
+  background: transparent;
+  border: 1.5px solid #B8732A;
+  color: #B8732A;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-edit:hover {
+  background: #B8732A;
+  color: #FDFAF4;
+}
+
+.btn-delete {
+  background: transparent;
+  border: 1.5px solid #8B2020;
+  color: #8B2020;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-delete:hover {
+  background: #8B2020;
+  color: #FDFAF4;
+}
+
+/* ── CartPage ── */
+.cart-page-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #B8732A;
+}
+
+.cart-page-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1E0F07;
+  margin: 0;
+}
+
+.cart-page-header span {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.85rem;
+  color: #9B7B5C;
+  font-style: italic;
+}
+
+.cart-empty {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  color: #9B7B5C;
+  font-size: 1rem;
+  padding: 2rem 0;
+}
+
+.cart-table-wrapper {
+  background: #FDFAF4;
+  border: 1px solid #DDC9A8;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(30,15,7,0.08);
+  margin-bottom: 1.5rem;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Lora', Georgia, serif;
+}
+
+.cart-table thead tr {
+  background: #F4EFE4;
+  border-bottom: 2px solid #DDC9A8;
+}
+
+.cart-table thead td {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #6B4226;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.85rem 1.25rem;
+}
+
+.cart-table tbody tr {
+  border-bottom: 1px solid #EEE5D3;
+  transition: background 0.15s;
+}
+
+.cart-table tbody tr:last-child { border-bottom: none; }
+.cart-table tbody tr:hover { background: #FDF5E8; }
+
+.cart-table tbody td {
+  font-size: 0.875rem;
+  color: #2E1A0E;
+  padding: 0.9rem 1.25rem;
+  vertical-align: middle;
+}
+
+.cart-table tbody td.cart-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: #1E0F07;
+  font-size: 0.95rem;
+}
+
+.cart-table tbody td.cart-subtotal {
+  font-weight: 600;
+  color: #6B4226;
+}
+
+.cart-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.cart-total {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  color: #1E0F07;
+}
+
+.cart-total span {
+  color: #B8732A;
+}
+
+.cart-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-checkout {
+  background: #1E0F07;
+  border: 1.5px solid #1E0F07;
+  color: #DDC9A8;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.btn-checkout:hover { background: #6B4226; border-color: #6B4226; }
+
+.btn-browse {
+  background: transparent;
+  border: 1.5px solid #B8732A;
+  color: #B8732A;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.btn-browse:hover { background: #B8732A; color: #FDFAF4; }
+
+.btn-clear {
+  background: transparent;
+  border: 1.5px solid #8B2020;
+  color: #8B2020;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.btn-clear:hover { background: #8B2020; color: #FDFAF4; }
+
+/* ── PurchasePage ── */
+.purchase-card {
+  background: #FDFAF4;
+  border: 1px solid #DDC9A8;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(30,15,7,0.08);
+  max-width: 480px;
+  margin: 2rem auto;
+}
+
+.purchase-card-header {
+  background: #1E0F07;
+  border-bottom: 3px solid #B8732A;
+  padding: 1.5rem 1.75rem;
+}
+
+.purchase-card-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #F4EFE4;
+  margin: 0 0 4px;
+}
+
+.purchase-card-header p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.9rem;
+  color: #B8732A;
+  margin: 0;
+}
+
+.purchase-card-body {
+  padding: 1.75rem;
+}
+
+.purchase-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 1.25rem;
+}
+
+.purchase-field label {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9B7B5C;
+}
+
+.purchase-field input {
+  background: white;
+  border: 1.5px solid #DDC9A8;
+  border-radius: 3px;
+  padding: 9px 12px;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.9rem;
+  color: #2E1A0E;
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.purchase-field input:focus {
+  outline: none;
+  border-color: #B8732A;
+}
+
+.purchase-field input[readonly] {
+  background: #F4EFE4;
+  color: #6B4226;
+  font-weight: 600;
+}
+
+.purchase-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #DDC9A8;
+  margin-top: 0.5rem;
+}
+
+.loading-state {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  color: #9B7B5C;
+  padding: 3rem;
+  text-align: center;
+}

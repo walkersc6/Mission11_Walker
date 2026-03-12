@@ -1,0 +1,136 @@
+/* Fonts imported in BookList.css — no need to re-import */
+
+.site-header {
+  background: var(--espresso, #1E0F07);
+  border-bottom: 3px solid var(--amber, #B8732A);
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Left: decorative rule + store name ── */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.header-brand-rule {
+  width: 3px;
+  height: 40px;
+  background: var(--amber, #B8732A);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.header-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.header-store-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #F4EFE4;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  margin: 0;
+}
+
+.header-tagline {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: #9B7B5C;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+/* ── Center: nav links ── */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header-nav a {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #DDC9A8;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.header-nav a:hover {
+  color: #F4EFE4;
+  border-bottom-color: var(--amber, #B8732A);
+}
+
+/* ── Right: cart ── */
+.header-cart {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  border: 1.5px solid #6B4226;
+  border-radius: 4px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-decoration: none;
+  position: relative;
+}
+
+.header-cart:hover {
+  border-color: var(--amber, #B8732A);
+  background: rgba(184, 115, 42, 0.1);
+}
+
+.header-cart-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.header-cart-label {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: #DDC9A8;
+}
+
+.header-cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--amber, #B8732A);
+  color: #FDFAF4;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-cart-total {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.72rem;
+  color: #9B7B5C;
+  font-style: italic;
+}

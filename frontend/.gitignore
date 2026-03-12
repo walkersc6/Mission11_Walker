@@ -27,3 +27,4 @@ dist-ssr
 .vs/
 obj/
 bin/
+*.vsidx

@@ -1,0 +1,218 @@
+/* ── Pagination ── */
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  font-family: 'Lora', Georgia, serif;
+
+}
+
+.pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-btn {
+  background: transparent;
+  border: 1.5px solid var(--tan, #DDC9A8);
+  color: var(--warm-brown, #6B4226);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: var(--amber, #B8732A);
+  color: var(--amber, #B8732A);
+  background: rgba(184, 115, 42, 0.06);
+}
+
+.page-btn.active {
+  background: var(--espresso, #1E0F07);
+  border-color: var(--espresso, #1E0F07);
+  color: var(--tan, #DDC9A8);
+  cursor: default;
+}
+
+.page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.page-btn.nav-btn {
+  width: auto;
+  padding: 0 12px;
+  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.pagination-size {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--subtle, #9B7B5C);
+  font-style: italic;
+}
+
+.pagination-size select {
+  background: var(--cream, #FDFAF4);
+  border: 1.5px solid var(--tan, #DDC9A8);
+  border-radius: 3px;
+  color: var(--text, #2E1A0E);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.pagination-size select:focus {
+  outline: none;
+  border-color: var(--amber, #B8732A);
+}
+
+
+/* ── Shared Form Styles ── */
+.book-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 15, 7, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 1rem;
+}
+
+.book-form-card {
+  background: var(--cream, #FDFAF4);
+  border: 1px solid var(--tan, #DDC9A8);
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(30, 15, 7, 0.2);
+  width: 100%;
+  max-width: 560px;
+  overflow: hidden;
+}
+
+.book-form-header {
+  background: var(--espresso, #1E0F07);
+  border-bottom: 3px solid var(--amber, #B8732A);
+  padding: 1.1rem 1.75rem;
+}
+
+.book-form-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--tan, #DDC9A8);
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.book-form-body {
+  padding: 1.75rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--subtle, #9B7B5C);
+}
+
+.form-field input {
+  background: white;
+  border: 1.5px solid var(--tan, #DDC9A8);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.875rem;
+  color: var(--text, #2E1A0E);
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: var(--amber, #B8732A);
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--tan, #DDC9A8);
+}
+
+.btn-primary {
+  background: var(--espresso, #1E0F07);
+  border: 1.5px solid var(--espresso, #1E0F07);
+  color: var(--tan, #DDC9A8);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.btn-primary:hover {
+  background: var(--warm-brown, #6B4226);
+  border-color: var(--warm-brown, #6B4226);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1.5px solid var(--tan, #DDC9A8);
+  color: var(--subtle, #9B7B5C);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--warm-brown, #6B4226);
+  color: var(--warm-brown, #6B4226);
+}
