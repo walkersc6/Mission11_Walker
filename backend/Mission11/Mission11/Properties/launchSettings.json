@@ -9,12 +9,12 @@
     }
   },
   "profiles": {
-    "default": { //changes https to default and removed http
+    "default": { 
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-        "applicationUrl": "https://localhost:5000;http://localhost:4000", //https port is 5000 and http port is 4000
+        "applicationUrl": "https://localhost:5000;http://localhost:4000", 
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
