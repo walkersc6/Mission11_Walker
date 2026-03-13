@@ -15,10 +15,9 @@ builder.Services.AddDbContext<BookDbContext>(options => options.UseSqlite(builde
 
 //enable program to use Cors
 builder.Services.AddCors(options =>
-    options.AddPolicy("AllowReactAppBlah",
+    options.AddPolicy("AllowReactFrontend",
     policy => {
         policy.WithOrigins("http://localhost:3001")
-       /*"https://gentle-rock-05f5f901e.6.azurestaticapps.net"*/
         .AllowAnyMethod()
         .AllowAnyHeader();
     }));
@@ -35,7 +34,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 //accept requests from port 3000
-app.UseCors("AllowReactAppBlah");
+app.UseCors("AllowReactFrontend");
 
 app.UseAuthorization();
 
